@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFriendlyNameGenerator", "RandomFriendlyNameGenerator.csproj", "{986465EA-7D1C-4A9C-95FD-43167FDFFC50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandomFriendlyNameGenerator", "RandomFriendlyNameGenerator.csproj", "{986465EA-7D1C-4A9C-95FD-43167FDFFC50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RandomFriendlyNameGenerator.Tests", "..\RandomFriendlyNameGenerator.Tests\RandomFriendlyNameGenerator.Tests.csproj", "{A763118F-5316-493E-A027-1BBBD746FE12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{986465EA-7D1C-4A9C-95FD-43167FDFFC50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{986465EA-7D1C-4A9C-95FD-43167FDFFC50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{986465EA-7D1C-4A9C-95FD-43167FDFFC50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A763118F-5316-493E-A027-1BBBD746FE12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A763118F-5316-493E-A027-1BBBD746FE12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A763118F-5316-493E-A027-1BBBD746FE12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A763118F-5316-493E-A027-1BBBD746FE12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
