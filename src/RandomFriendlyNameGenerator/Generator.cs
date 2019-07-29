@@ -1,18 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
 
 namespace RandomFriendlyNameGenerator
 {
     public class Generator
     {
-        private static Random firstPartRandom = new Random();
-        private static Random secondPartRandom = new Random();
-        private static Random thirdPartRandom = new Random();
+        private static IGenerateRandomIndex firstPartRandom = new RandomBasedGenerator();
+        private static IGenerateRandomIndex secondPartRandom = new RandomBasedGenerator();
+        private static IGenerateRandomIndex thirdPartRandom = new RandomBasedGenerator();
 
         public string GetName()
         {
-            return $"{Adjectives.Values[firstPartRandom.Next()]}{FemaleFirstNames.Values[firstPartRandom.Next()]}";
+            return $"{GetToken(Adjectives.Values, firstPartRandom)}{GetToken(FirstNames.Values, secondPartRandom)}";
+        }
+
+        private static string GetToken(List<string> collection, IGenerateRandomIndex generator)
+        {
+            return collection[generator.Get(collection.Count)];
         }
     }
 }
