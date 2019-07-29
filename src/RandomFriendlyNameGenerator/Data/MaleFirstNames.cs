@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RandomFriendlyNameGenerator
 {
-    static class MaleFirstNames
+    public static class MaleFirstNames
     {
         public static readonly List<string> Values = new List<string>()
         {

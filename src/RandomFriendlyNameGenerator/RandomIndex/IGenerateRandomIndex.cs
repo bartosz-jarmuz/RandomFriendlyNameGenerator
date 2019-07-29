@@ -1,4 +1,4 @@
-﻿namespace RandomFriendlyNameGenerator
+﻿namespace RandomFriendlyNameGenerator.RandomIndex
 {
     public interface IGenerateRandomIndex
     {
