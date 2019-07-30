@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using RandomFriendlyNameGenerator.Data;
 using RandomFriendlyNameGenerator.RandomIndex;
@@ -110,17 +111,24 @@ namespace RandomFriendlyNameGenerator
 
         private void GetTheNounPart(IdentifierComponents components, string separator, StringBuilder sb, char? forcedSingleLetter)
         {
+            var combinedNouns = new List<string>();
+            
             if (components.HasFlag(IdentifierComponents.Animal))
             {
-                sb.Append(Helpers.GetToken(this.animals, this.randomIndex, forcedSingleLetter) + separator);
+                combinedNouns.AddRange(this.animals);
             }
-            else if (components.HasFlag(IdentifierComponents.Noun))
+             if (components.HasFlag(IdentifierComponents.Noun))
             {
-                sb.Append(Helpers.GetToken(this.nouns, this.randomIndex, forcedSingleLetter) + separator);
+                combinedNouns.AddRange(this.nouns);
             }
-            else if (components.HasFlag(IdentifierComponents.Profession))
+             if (components.HasFlag(IdentifierComponents.Profession))
             {
-                sb.Append(Helpers.GetToken(this.professions, this.randomIndex, forcedSingleLetter) + separator);
+                combinedNouns.AddRange(this.professions);
+            }
+
+            if (combinedNouns.Any())
+            {
+                sb.Append(Helpers.GetToken(combinedNouns, this.randomIndex, forcedSingleLetter) + separator);
             }
         }
     }

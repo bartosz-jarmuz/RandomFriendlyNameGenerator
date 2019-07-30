@@ -22,6 +22,10 @@ namespace RandomFriendlyNameGenerator
 
         internal static string GetToken(List<string> collection, IGenerateRandomIndex generator, char? forcedSingleLetter )
         {
+            if (!collection.Any())
+            {
+                return "";
+            }
             if (forcedSingleLetter == null)
             {
                 return collection[generator.Get(collection.Count)];

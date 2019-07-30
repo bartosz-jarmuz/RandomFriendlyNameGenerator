@@ -41,5 +41,40 @@ namespace RandomFriendlyNameGenerator.Tests
             Assert.AreEqual("Sophisticated MountainGoat Helga", generator.Get(IdentifierComponents.Adjective | IdentifierComponents.FirstName | IdentifierComponents.Animal, NameOrderingStyle.SilentBobStyle));
             Assert.AreEqual("Sophisticated Albanian MountainGoat Helga", generator.Get(IdentifierComponents.Adjective | IdentifierComponents.Nationality |IdentifierComponents.FirstName | IdentifierComponents.Animal, NameOrderingStyle.SilentBobStyle));
         }
+
+        [Test]
+        public void TestVariousPossibleNouns()
+        {
+            var generator = new IdentifiersGenerator(this.adjectives, this.animals, this.names, this.nationalities, this.nouns, this.professions);
+            bool nounDone = false;
+            bool professionDone = false;
+            bool animalDone = false;
+            for (int i = 0; i < 1000; i++)
+            {
+                var result = generator.Get(
+                    IdentifierComponents.Adjective | IdentifierComponents.Nationality | IdentifierComponents.FirstName |
+                    IdentifierComponents.Profession | IdentifierComponents.Noun | IdentifierComponents.Animal,
+                    NameOrderingStyle.SilentBobStyle);
+                if (result == "Sophisticated Albanian MountainGoat Helga")
+                {
+                    animalDone = true;
+                }
+                else if (result == "Sophisticated Albanian Toothpick Helga")
+                {
+                    nounDone = true;
+                }
+                else if (result == "Sophisticated Albanian Baker Helga")
+                {
+                    professionDone = true;
+                }
+
+                if (nounDone && professionDone && animalDone)
+                {
+                    return;
+                }
+            }
+            Assert.Fail($"Noun: {nounDone}. Profession: {professionDone}. Animal {animalDone}");
+            
+        }
     }
 }
