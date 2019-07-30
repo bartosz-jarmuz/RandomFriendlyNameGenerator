@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace RandomFriendlyNameGenerator
+namespace RandomFriendlyNameGenerator.Data
 {
     public static class FirstNames
     {

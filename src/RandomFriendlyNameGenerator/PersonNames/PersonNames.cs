@@ -1,35 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using RandomFriendlyNameGenerator.Data;
 using RandomFriendlyNameGenerator.RandomIndex;
 
 namespace RandomFriendlyNameGenerator
 {
-    public enum NameGender
+    public class PersonNames
     {
-        Any,
-        Female,
-        Male,
-    }
+        private readonly IGenerateRandomIndex randomIndex = new RandomBasedGenerator();
 
-    public enum NameComponents
-    {
-        FirstNameLastName,
-        FirstNameMiddleNameLastName,
-        FirstNameOnly,
-        LastNameOnly,
-        LastNameFirstName,
-    }
-
-    public class Generator
-    {
-        private static IGenerateRandomIndex firstPartRandom = new RandomBasedGenerator();
-        private static IGenerateRandomIndex secondPartRandom = new RandomBasedGenerator();
-        private static IGenerateRandomIndex randomIndex = new RandomBasedGenerator();
-
-        public string GetHumanName(NameGender gender = NameGender.Any, NameComponents components = NameComponents.FirstNameLastName, string separator = " ")
+        public string Get(NameGender gender = NameGender.Any, NameComponents components = NameComponents.FirstNameLastName, string separator = " ")
         {
-            string firstName = this.GetFirstName(components, this.DetermineGender(gender)) ;
+            string firstName = this.GetFirstName(components, this.DetermineGender(gender));
             string lastName = this.GetLastName(components);
             string middleName = this.GetMiddleName(components, this.DetermineGender(gender));
             switch (components)
@@ -48,14 +29,14 @@ namespace RandomFriendlyNameGenerator
                     throw new ArgumentOutOfRangeException(nameof(components), components, null);
             }
 
-            
+
         }
 
         private string GetMiddleName(NameComponents components, NameGender gender)
         {
             if (components == NameComponents.FirstNameMiddleNameLastName)
             {
-                return GetName(gender);
+                return this.GetName(gender);
             }
 
             return "";
@@ -69,7 +50,7 @@ namespace RandomFriendlyNameGenerator
             }
             else
             {
-                var diceRoll = randomIndex.Get(2);
+                var diceRoll = this.randomIndex.Get(2);
                 if (diceRoll == 0)
                 {
                     return NameGender.Female;
@@ -85,22 +66,22 @@ namespace RandomFriendlyNameGenerator
         {
             if (components != NameComponents.LastNameOnly)
             {
-                return GetName(gender);
+                return this.GetName(gender);
             }
 
             return "";
         }
 
-        private static string GetName(NameGender gender)
+        private string GetName(NameGender gender)
         {
             switch (gender)
             {
                 case NameGender.Any:
-                    return $"{GetToken(FirstNames.Values, firstPartRandom)}";
+                    return $"{NameGenerator.GetToken(FirstNames.Values, this.randomIndex)}";
                 case NameGender.Female:
-                    return $"{GetToken(FemaleFirstNames.Values, firstPartRandom)}";
+                    return $"{NameGenerator.GetToken(FemaleFirstNames.Values, this.randomIndex)}";
                 case NameGender.Male:
-                    return $"{GetToken(MaleFirstNames.Values, firstPartRandom)}";
+                    return $"{NameGenerator.GetToken(MaleFirstNames.Values, this.randomIndex)}";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gender), gender, null);
             }
@@ -110,15 +91,10 @@ namespace RandomFriendlyNameGenerator
         {
             if (components != NameComponents.FirstNameOnly)
             {
-                return GetToken(LastNames.Values, randomIndex);
+                return NameGenerator.GetToken(LastNames.Values, this.randomIndex);
             }
 
             return "";
-        }
-
-        private static string GetToken(List<string> collection, IGenerateRandomIndex generator)
-        {
-            return collection[generator.Get(collection.Count)];
         }
     }
 }

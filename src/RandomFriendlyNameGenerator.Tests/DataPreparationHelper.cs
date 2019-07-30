@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
+using RandomFriendlyNameGenerator.Data;
 
 namespace RandomFriendlyNameGenerator.Tests
 {
@@ -78,7 +79,6 @@ namespace RandomFriendlyNameGenerator.Tests
 
         public string RemoveSpecialCharacters(string str)
         {
-            return str;
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
             {
