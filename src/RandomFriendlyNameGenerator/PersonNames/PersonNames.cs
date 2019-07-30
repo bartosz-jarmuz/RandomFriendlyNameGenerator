@@ -4,6 +4,9 @@ using RandomFriendlyNameGenerator.RandomIndex;
 
 namespace RandomFriendlyNameGenerator
 {
+    /// <summary>
+    /// Generates human-like names based on random first names and last names combinations from all countries.
+    /// </summary>
     public class PersonNames
     {
         private readonly IGenerateRandomIndex randomIndex = new RandomBasedGenerator();
@@ -77,11 +80,11 @@ namespace RandomFriendlyNameGenerator
             switch (gender)
             {
                 case NameGender.Any:
-                    return $"{NameGenerator.GetToken(FirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(FirstNames.Values, this.randomIndex)}";
                 case NameGender.Female:
-                    return $"{NameGenerator.GetToken(FemaleFirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(FemaleFirstNames.Values, this.randomIndex)}";
                 case NameGender.Male:
-                    return $"{NameGenerator.GetToken(MaleFirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(MaleFirstNames.Values, this.randomIndex)}";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gender), gender, null);
             }
@@ -91,7 +94,7 @@ namespace RandomFriendlyNameGenerator
         {
             if (components != NameComponents.FirstNameOnly)
             {
-                return NameGenerator.GetToken(LastNames.Values, this.randomIndex);
+                return Helpers.GetToken(LastNames.Values, this.randomIndex);
             }
 
             return "";
