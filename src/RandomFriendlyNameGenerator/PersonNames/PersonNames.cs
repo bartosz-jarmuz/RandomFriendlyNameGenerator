@@ -11,11 +11,13 @@ namespace RandomFriendlyNameGenerator
     {
         private readonly IGenerateRandomIndex randomIndex = new RandomBasedGenerator();
 
-        public string Get(NameGender gender = NameGender.Any, NameComponents components = NameComponents.FirstNameLastName, string separator = " ")
+        public string Get(NameGender gender = NameGender.Any, NameComponents components = NameComponents.FirstNameLastName, string separator = " ", bool forceSingleLetter = false)
         {
-            string firstName = this.GetFirstName(components, this.DetermineGender(gender));
-            string lastName = this.GetLastName(components);
-            string middleName = this.GetMiddleName(components, this.DetermineGender(gender));
+            char? forcedSingleLetter = Helpers.GetForcedSingleCharacter(forceSingleLetter, this.randomIndex);
+
+            string firstName = this.GetFirstName(components, this.DetermineGender(gender), forcedSingleLetter);
+            string lastName = this.GetLastName(components, forcedSingleLetter);
+            string middleName = this.GetMiddleName(components, this.DetermineGender(gender), forcedSingleLetter);
             switch (components)
             {
                 case NameComponents.FirstNameLastName:
@@ -35,11 +37,11 @@ namespace RandomFriendlyNameGenerator
 
         }
 
-        private string GetMiddleName(NameComponents components, NameGender gender)
+        private string GetMiddleName(NameComponents components, NameGender gender, char? forcedSingleLetter)
         {
             if (components == NameComponents.FirstNameMiddleNameLastName)
             {
-                return this.GetName(gender);
+                return this.GetName(gender, forcedSingleLetter);
             }
 
             return "";
@@ -65,36 +67,36 @@ namespace RandomFriendlyNameGenerator
             }
         }
 
-        private string GetFirstName(NameComponents components, NameGender gender)
+        private string GetFirstName(NameComponents components, NameGender gender, char? forcedSingleLetter)
         {
             if (components != NameComponents.LastNameOnly)
             {
-                return this.GetName(gender);
+                return this.GetName(gender, forcedSingleLetter);
             }
 
             return "";
         }
 
-        private string GetName(NameGender gender)
+        private string GetName(NameGender gender, char? forcedSingleLetter)
         {
             switch (gender)
             {
                 case NameGender.Any:
-                    return $"{Helpers.GetToken(FirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(FirstNames.Values, this.randomIndex, forcedSingleLetter)}";
                 case NameGender.Female:
-                    return $"{Helpers.GetToken(FemaleFirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(FemaleFirstNames.Values, this.randomIndex, forcedSingleLetter)}";
                 case NameGender.Male:
-                    return $"{Helpers.GetToken(MaleFirstNames.Values, this.randomIndex)}";
+                    return $"{Helpers.GetToken(MaleFirstNames.Values, this.randomIndex, forcedSingleLetter)}";
                 default:
                     throw new ArgumentOutOfRangeException(nameof(gender), gender, null);
             }
         }
 
-        private string GetLastName(NameComponents components)
+        private string GetLastName(NameComponents components, char? forcedSingleLetter)
         {
             if (components != NameComponents.FirstNameOnly)
             {
-                return Helpers.GetToken(LastNames.Values, this.randomIndex);
+                return Helpers.GetToken(LastNames.Values, this.randomIndex, forcedSingleLetter);
             }
 
             return "";
