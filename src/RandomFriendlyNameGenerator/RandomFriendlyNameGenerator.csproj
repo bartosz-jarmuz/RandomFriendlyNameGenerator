@@ -19,7 +19,7 @@ Over 100000 unique words in various categories allow hundreds of milions of comb
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>RandomFileNameGeneratorKey.snk</AssemblyOriginatorKeyFile>
     <Company>Bartosz Jarmuż</Company>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Bartosz Jarmuż</Authors>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
