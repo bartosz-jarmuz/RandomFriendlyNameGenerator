@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</RepositoryUrl>
+    <PackageTags>configurable random name generator identifier id helper flexible unique person names surname</PackageTags>
+    <Description>Simple but flexible and powerful utility for generating random names (human like, e.g. Jim Deam) or identifiers (like sympathetic_aligator) or anything in between (like Bob The Builder)</Description>
+    <Copyright>Bartosz Jarmuż</Copyright>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>RandomFileNameGeneratorKey.snk</AssemblyOriginatorKeyFile>
+    <Company>Bartosz Jarmuż</Company>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\bjarmuz\source\repos\RandomFriendlyNameGenerator\src\RandomFriendlyNameGenerator\RandomFriendlyNameGenerator.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
