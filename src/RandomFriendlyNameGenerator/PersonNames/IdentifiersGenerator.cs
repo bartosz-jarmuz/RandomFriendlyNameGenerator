@@ -107,7 +107,7 @@ namespace RandomFriendlyNameGenerator
         /// <param name="lengthRestriction">Maximum number of characters in the returned string</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentOutOfRangeException">orderStyle - null</exception>
-        public IEnumerable<string> Get(int numberOfNamesToReturn, IdentifierComponents components = IdentifierComponents.Adjective | IdentifierComponents.Profession, NameOrderingStyle orderStyle = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
+        public IEnumerable<string> Get(int numberOfNamesToReturn, IdentifierComponents components = IdentifierComponents.Adjective | IdentifierComponents.Noun, NameOrderingStyle orderStyle = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
         {
             for (int i = 0; i < numberOfNamesToReturn; i++)
             {
@@ -125,7 +125,7 @@ namespace RandomFriendlyNameGenerator
         /// <param name="lengthRestriction">Maximum number of characters in the returned string</param>
         /// <returns>System.String.</returns>
         /// <exception cref="ArgumentOutOfRangeException">orderStyle - null</exception>
-        public string Get(IdentifierComponents components = IdentifierComponents.Adjective | IdentifierComponents.Profession, NameOrderingStyle orderStyle = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
+        public string Get(IdentifierComponents components = IdentifierComponents.Adjective | IdentifierComponents.Noun, NameOrderingStyle orderStyle = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
         {
             char? forcedSingleLetter = Helpers.GetForcedSingleCharacter(forceSingleLetter, this.randomIndex);
             int attempt = 0;

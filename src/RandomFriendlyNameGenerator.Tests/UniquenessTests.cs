@@ -31,7 +31,7 @@ namespace RandomFriendlyNameGenerator.Tests
                 var duplicatesPercentage = (decimal)duplicates.Count / names.Count * 100;
 
                 Console.WriteLine(
-                    $"Duplicates: {duplicates.Count}. Duplicates percentage: {(decimal)duplicates.Count / names.Count * 100}. Elapsed: {sw.ElapsedMilliseconds}");
+                    $"Generated {names.Count:N0}. Duplicates: {duplicates.Count}. Duplicates percentage: {(decimal)duplicates.Count / names.Count * 100}. Elapsed: {sw.ElapsedMilliseconds}ms");
 
 
                 if (j == 2)
@@ -55,7 +55,7 @@ namespace RandomFriendlyNameGenerator.Tests
         [Test]
         public void TestFullyRandom([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
         {
-            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Adjective| IdentifierComponents.FirstName | IdentifierComponents.Profession,  NameOrderingStyle.BobTheBuilderStyle), 0.2M);
+            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierTemplate.AnyThreeComponents,  NameOrderingStyle.BobTheBuilderStyle), 0.2M);
         }
 
         [Test]
