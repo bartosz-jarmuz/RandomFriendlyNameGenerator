@@ -6,19 +6,22 @@
     <PackageProjectUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</RepositoryUrl>
     <PackageTags>configurable random name generator identifier id helper flexible unique person names surname</PackageTags>
-    <Description>Simple but flexible and powerful utility for generating: 
-random names (human like, e.g. Jim Deam) 
-or identifiers (like sympathetic_alligator) 
-or anything in between:
-like Bob_The_Builder, Well-dressed-Entertainer, Medium-rare SeaTurtle Eldon, RoannaTheJoblessComputer etc
+    <Description>Simple but flexible and powerful utility for generating random names: 
+- human-like, e.g. Jim Deam, Henrie Avdeev, Lanita Leutbecher
+- or github/docker style identifiers, like sympathetic_alligator, UnsuitedHistorian, Psychedelic-FundRaiser
+- or anything in between, like
+Bob_The_Builder, Well-dressed-Entertainer, Medium-rare SeaTurtle Eldon, RoannaTheJoblessComputer etc
 
-All with configurable number of components, separators, length and structure.</Description>
+All with configurable number of components, separators, length and structure, usable in a single line of code.
+
+Over 100000 unique words in various categories allow hundreds of milions of combinations!</Description>
     <Copyright>Bartosz Jarmuż</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>RandomFileNameGeneratorKey.snk</AssemblyOriginatorKeyFile>
     <Company>Bartosz Jarmuż</Company>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Bartosz Jarmuż</Authors>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
