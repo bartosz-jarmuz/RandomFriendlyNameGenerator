@@ -12,7 +12,7 @@ namespace RandomFriendlyNameGenerator.Tests
 #if !DEBUG
     [Ignore("It's not really a test. It's a utility for data preparation")]
 #endif
-    //[TestFixture]
+   // [TestFixture]
     public class DataPreparationHelper
     {
         [Test]
@@ -72,7 +72,7 @@ namespace RandomFriendlyNameGenerator.Tests
             {
                 return ""; //we don't want too long names (e.g. 'MountainGoat' is fine, but 'Cavalier King Charles Spaniel' is too much:))
             }
-            var result = string.Join("", parts.Select(x => RemoveSpecialCharacters((char.ToUpperInvariant(x[0]) + x.Substring(1)))));
+            var result = string.Join("", parts.Select(x => RemoveSpecialCharacters((char.ToUpperInvariant(x[0]) + x.Substring(1).ToLowerInvariant()))));
             if (result.Length > 13)
             {
                 return "";
