@@ -1,6 +1,8 @@
 # RandomFriendlyNameGenerator [![Build status](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_apis/build/status/RandomFriendlyNameGenerator-.NET%20Desktop-CI)](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_build/latest?definitionId=21)
 Simple but flexible and powerful utility for generating random names and identifiers - with configurable number of components, separators, length and structure, usable in a single line of code.
 
+> **Get it from NuGet: https://www.nuget.org/packages/RandomFriendlyNameGenerator**  
+
 # Examples
 In all methods you can specify the separator, the length restriction and whether generated words should all start with a single character (i.e. alliteration).  
 Also, each method has an overload which returns an IEnumerable instead of a single string.
@@ -137,3 +139,5 @@ Code below, executed in loops of 100 000 and 1 000 000 times yields following re
 > Generated 1 000 000. Duplicates: 49. Duplicates percentage: 0.004900. Elapsed: 3138ms   
 > Generated 1 000 000. Duplicates: 33. Duplicates percentage: 0.003300. Elapsed: 3362ms   
 
+# Contributions and feedback
+All very welcome, I am happy to accept pull requests with clean and tested code :):)
