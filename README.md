@@ -26,7 +26,7 @@ returns:
 
 or  
 ```csharp
-IEnumerable<string> names = NameGenerator.PersonNames.Get(5, NameGender.Female, NameComponents.LastNameFirstName, separator: ", ");
+var names = NameGenerator.PersonNames.Get(5, NameGender.Female, NameComponents.LastNameFirstName, separator: ", ");
 ```  
 which returns:  
 - Bloss, Suzanna
@@ -45,7 +45,7 @@ returns a single random adjective & noun, similar to below:
 
 For any method you can specify additional settings and parameters, to control the output e.g:  
 ```csharp
-IEnumerable<string> names =  NameGenerator.Identifiers.Get(5, IdentifierComponents.FirstName | IdentifierComponents.Animal);
+var names =  NameGenerator.Identifiers.Get(5, IdentifierComponents.FirstName | IdentifierComponents.Animal);
 ```  
 returns:  
 - SavannaBaboon Zollie
@@ -94,7 +94,7 @@ NameGenerator.Identifiers.Get(5, IdentifierTemplate.GitHub);
 ```  
 etc.
 
-#Uniqueness and possible combinations
+# Uniqueness and possible combinations
 
 *(The latest values for the info below are available in the 'Showcase' class in the tests project)*
 
@@ -120,7 +120,7 @@ Which in total allows for quite a few combinations:
 - **Possible first name, adjective and animal combinations**: 463 287 424
 - **Possible first name, adjective and profession combinations**: 2 056 154 672
 
-#Performance
+# Performance
 
 *(The latest values for the info below are available in the 'UniquenessTests' class in the tests project)*
 
