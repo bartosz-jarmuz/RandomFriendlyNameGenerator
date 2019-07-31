@@ -62,7 +62,7 @@ namespace RandomFriendlyNameGenerator.Tests
         [Test]
         public void  TestIdentifierUniqueness([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
         {
-            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Noun | IdentifierComponents.Adjective| IdentifierComponents.FirstName),1);
+            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Noun | IdentifierComponents.Adjective| IdentifierComponents.FirstName, NameOrderingStyle.SilentBobStyle),1);
         }
 
         [Test]

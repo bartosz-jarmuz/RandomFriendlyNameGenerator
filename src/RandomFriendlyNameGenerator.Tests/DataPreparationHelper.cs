@@ -63,6 +63,10 @@ namespace RandomFriendlyNameGenerator.Tests
 
         private string EnsureShortPascalCaseString(string input)
         {
+            if (input.Length == 1)
+            {
+                return "";
+            }
             var parts = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);
             if (parts.Length > 2)
             {

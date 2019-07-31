@@ -6,7 +6,6 @@ using NUnit.Framework;
 
 namespace RandomFriendlyNameGenerator.Tests
 {
-
     [TestFixture]
     public class OrderTests
     {

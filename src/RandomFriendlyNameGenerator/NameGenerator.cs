@@ -6,10 +6,7 @@ namespace RandomFriendlyNameGenerator
 {
     public static class NameGenerator
     {
-        public static PersonNames PersonNames { get; } = new PersonNames();
+        public static PersonNamesGenerator PersonNames { get; } = new PersonNamesGenerator();
         public static IdentifiersGenerator Identifiers { get; } = new IdentifiersGenerator();
-
-      
-
     }
 }
