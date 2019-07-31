@@ -8,31 +8,6 @@ using RandomFriendlyNameGenerator.RandomIndex;
 
 namespace RandomFriendlyNameGenerator
 {
-    public enum IdentifierTemplate
-    {
-        /// <summary>
-        /// Random combination of any two components.
-        /// <para>The possible combinations are limited to be meaningful</para>
-        /// </summary>
-        AnyTwoComponents,
-        AnyThreeComponents,
-        BobTheBuilder,
-        PeppaPig,
-        SilentBob,
-        GitHub
-    }
-
-    /// <summary>
-    /// Specifies the settings for the generator
-    /// </summary>
-    public class GeneratorOptions
-    {
-        public static GeneratorOptions Default = new GeneratorOptions();
-        public string Separator { get; set; } = " ";
-        public bool ForceSingleCharacter { get; set; } = false;
-        public int NameLengthRestriction{ get; set; } = 0;
-    }
-
     /// <summary>
     /// Generates non-human identifier strings
     /// </summary>

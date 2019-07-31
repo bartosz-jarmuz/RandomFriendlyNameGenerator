@@ -54,6 +54,33 @@ namespace RandomFriendlyNameGenerator.Tests
         }
 
         [Test]
+        public void TestFullyRandom([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
+        {
+            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Adjective| IdentifierComponents.FirstName | IdentifierComponents.Profession,  NameOrderingStyle.BobTheBuilderStyle), 0.2M);
+        }
+
+        [Test]
+        public void TestBobTheBuilder([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
+        {
+            int attempt = 0;
+            while (true)
+            {
+                attempt++;
+                if ("Bob The Builder" == NameGenerator.Identifiers.Get(IdentifierTemplate.BobTheBuilder,
+                        NameOrderingStyle.BobTheBuilderStyle))
+                {
+                    Console.WriteLine($"It took {attempt} attempts to create Bob The Builder");
+                }
+
+                if (attempt > 1_000_000)
+                {
+
+
+                }
+            }
+        }
+
+        [Test]
         public void TestPersonNameUniqueness_SingleLetter([Values(1_000)] int reps)
         {
             this.RunTest(reps, () => NameGenerator.PersonNames.Get(forceSingleLetter:true), 0.25M);
@@ -62,7 +89,7 @@ namespace RandomFriendlyNameGenerator.Tests
         [Test]
         public void  TestIdentifierUniqueness([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
         {
-            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Noun | IdentifierComponents.Adjective| IdentifierComponents.FirstName, NameOrderingStyle.SilentBobStyle),1);
+            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Noun | IdentifierComponents.Adjective, NameOrderingStyle.SilentBobStyle),1);
         }
 
         [Test]

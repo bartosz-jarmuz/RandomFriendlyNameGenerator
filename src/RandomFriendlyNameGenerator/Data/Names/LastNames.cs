@@ -2,8 +2,14 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+    /// <summary>
+    /// Class LastNames.
+    /// </summary>
     public static class LastNames
     {
+        /// <summary>
+        /// The values
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
 "Aaberg",

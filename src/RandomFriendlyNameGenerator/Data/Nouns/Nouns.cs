@@ -2,8 +2,14 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+    /// <summary>
+    /// Class Nouns.
+    /// </summary>
     public static class Nouns
     {
+        /// <summary>
+        /// The values
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
          "Abacus",

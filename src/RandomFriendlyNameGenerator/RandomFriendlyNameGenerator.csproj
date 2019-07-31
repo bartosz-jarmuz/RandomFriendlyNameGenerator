@@ -6,7 +6,7 @@
     <PackageProjectUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bartosz-jarmuz/RandomFriendlyNameGenerator</RepositoryUrl>
     <PackageTags>configurable random name generator identifier id helper flexible unique person names surname</PackageTags>
-    <Description>Simple but flexible and powerful utility for generating random names (human like, e.g. Jim Deam) or identifiers (like sympathetic_aligator) or anything in between (like Bob The Builder)</Description>
+    <Description>Simple but flexible and powerful utility for generating random names (human like, e.g. Jim Deam) or identifiers (like sympathetic_alligator) or anything in between, with configurable number of components, separators, length and structure - like Bob_The_Builder, Well-dressed-Entertainer, Medium-rare SeaTurtle Eldon, RoannaTheJoblessComputer etc</Description>
     <Copyright>Bartosz Jarmuż</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>RandomFileNameGeneratorKey.snk</AssemblyOriginatorKeyFile>
