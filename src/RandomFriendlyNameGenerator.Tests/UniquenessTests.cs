@@ -8,7 +8,7 @@ namespace RandomFriendlyNameGenerator.Tests
 {
 
     [TestFixture]
-    public class Tests
+    public class UniquenessTests
     {
         private void RunTest(int reps, Func<string> getName, decimal acceptableDuplicatesPercentage)
         {
@@ -37,12 +37,12 @@ namespace RandomFriendlyNameGenerator.Tests
 
                 if (j == 2)
                 {
-                    for (int i = 0; i < 10; i++)
+                    for (int i = 0; i < 100; i++)
                     {
                         Console.WriteLine(names[i]);
                     }
                 }
-                Assert.That(duplicatesPercentage < acceptableDuplicatesPercentage, $"Duplicates: {duplicatesPercentage}. Acceptable: {acceptableDuplicatesPercentage}");
+                Assert.That(duplicatesPercentage <= acceptableDuplicatesPercentage, $"Duplicates: {duplicatesPercentage}. Acceptable: {acceptableDuplicatesPercentage}");
 
             }
         }
@@ -56,13 +56,19 @@ namespace RandomFriendlyNameGenerator.Tests
         [Test]
         public void TestPersonNameUniqueness_SingleLetter([Values(1_000)] int reps)
         {
-            this.RunTest(reps, () => NameGenerator.PersonNames.Get(forceSingleLetter:true), 0.2M);
+            this.RunTest(reps, () => NameGenerator.PersonNames.Get(forceSingleLetter:true), 0.25M);
         }
 
         [Test]
         public void  TestIdentifierUniqueness([Values(1_000, 10_000, 100_000, 1_000_000)] int reps)
         {
             this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierComponents.Noun | IdentifierComponents.Adjective| IdentifierComponents.FirstName, NameOrderingStyle.SilentBobStyle),1);
+        }
+
+        [Test]
+        public void TestRandomIdentifierUniqueness([Values(1_000, 10_000, 100_000)] int reps)
+        {
+            this.RunTest(reps, () => NameGenerator.Identifiers.Get(IdentifierTemplate.AnyTwoComponents, NameOrderingStyle.SilentBobStyle), 1);
         }
 
         [Test]

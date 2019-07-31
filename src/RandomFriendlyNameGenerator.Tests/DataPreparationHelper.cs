@@ -12,7 +12,7 @@ namespace RandomFriendlyNameGenerator.Tests
 #if !DEBUG
     [Ignore("It's not really a test. It's a utility for data preparation")]
 #endif
-    [TestFixture]
+    //[TestFixture]
     public class DataPreparationHelper
     {
         [Test]
