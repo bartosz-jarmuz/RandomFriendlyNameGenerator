@@ -2,8 +2,14 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+    /// <summary>
+    /// Class Adjectives.
+    /// </summary>
     public static class Adjectives
     {
+        /// <summary>
+        /// The values
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
             "Abandoned",

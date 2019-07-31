@@ -2,11 +2,17 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+    /// <summary>
+    /// Class Professions.
+    /// </summary>
     public static class Professions
     {
+        /// <summary>
+        /// The values/
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
-        "AbleSeamen",
+        "Seaman",
 "Accountant",
 "Actor",
 "Actuary",

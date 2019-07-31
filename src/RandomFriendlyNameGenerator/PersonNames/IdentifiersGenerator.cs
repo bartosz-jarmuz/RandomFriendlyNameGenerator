@@ -43,6 +43,36 @@ namespace RandomFriendlyNameGenerator
         private readonly List<string> nouns;
         private readonly List<string> professions;
 
+        /// <summary>
+        /// Gets a random identifier based on the specified template.
+        /// <para>Bear in mind that enumerating the result set multiple times will yield different results</para>
+        /// </summary>
+        /// <param name="numberOfNamesToReturn"></param>
+        /// <param name="template">The template.</param>
+        /// <param name="order">The order.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="forceSingleLetter">if set to <c>true</c> [force single letter].</param>
+        /// <param name="lengthRestriction">The length restriction.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">template - null</exception>
+        public IEnumerable<string> Get(int numberOfNamesToReturn, IdentifierTemplate template, NameOrderingStyle order = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
+        {
+            for (int i = 0; i < numberOfNamesToReturn; i++)
+            {
+                yield return this.Get(template, order, separator, forceSingleLetter, lengthRestriction);
+            }
+        }
+
+        /// <summary>
+        /// Gets a random identifier based on the specified template.
+        /// </summary>
+        /// <param name="template">The template.</param>
+        /// <param name="order">The order.</param>
+        /// <param name="separator">The separator.</param>
+        /// <param name="forceSingleLetter">if set to <c>true</c> [force single letter].</param>
+        /// <param name="lengthRestriction">The length restriction.</param>
+        /// <returns>System.String.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">template - null</exception>
         public string Get(IdentifierTemplate template, NameOrderingStyle order = DefaultOrderStyle, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
         {
             
@@ -63,73 +93,6 @@ namespace RandomFriendlyNameGenerator
                 default:
                     throw new ArgumentOutOfRangeException(nameof(template), template, null);
             } 
-        }
-
-        private string GetRandomTwo(NameOrderingStyle order, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
-        {
-            var setNumber = this.randomIndex.Get(3);
-            
-            switch (setNumber)
-            {
-                case 0:
-                    return this.Get(this.GetRandomNoun() | IdentifierComponents.FirstName, order, separator, forceSingleLetter, lengthRestriction);
-                case 1:
-                    return this.Get(this.GetRandomAdjective()| IdentifierComponents.FirstName, order, separator, forceSingleLetter, lengthRestriction);
-                case 2:
-                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
-                default:
-                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
-            }
-        }
-
-        private string GetRandomThree(NameOrderingStyle order, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
-        {
-            var setNumber = this.randomIndex.Get(3);
-
-            switch (setNumber)
-            {
-                case 0:
-                case 1:
-                    return this.Get(this.GetRandomAdjective() | IdentifierComponents.FirstName, order, separator, forceSingleLetter, lengthRestriction);
-                case 2:
-                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
-                default:
-                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
-            }
-        }
-
-        private IdentifierComponents GetRandomAdjective()
-        {
-            var adjectiveOption = this.randomIndex.Get(2);
-
-
-            switch (adjectiveOption)
-            {
-                case 0:
-                    return IdentifierComponents.Adjective;
-                case 1:
-                    return IdentifierComponents.Nationality;
-                default:
-                    return IdentifierComponents.Adjective;
-            }
-
-        }
-
-        private IdentifierComponents GetRandomNoun()
-        {
-            var nounOption = this.randomIndex.Get(3);
-
-            switch (nounOption)
-            {
-                case 0:
-                    return IdentifierComponents.Profession;
-                case 1:
-                    return IdentifierComponents.Animal;
-                case 2:
-                    return IdentifierComponents.Noun;
-                default:
-                    return IdentifierComponents.Noun;
-            }
         }
 
         /// <summary>
@@ -184,6 +147,57 @@ namespace RandomFriendlyNameGenerator
                 {
                     return name.Remove(lengthRestriction);
                 }
+            }
+        }
+
+        private string GetRandomTwo(NameOrderingStyle order, string separator = " ", bool forceSingleLetter = false, int lengthRestriction = 0)
+        {
+            var setNumber = this.randomIndex.Get(3);
+            
+            switch (setNumber)
+            {
+                case 0:
+                    return this.Get(this.GetRandomNoun() | IdentifierComponents.FirstName, order, separator, forceSingleLetter, lengthRestriction);
+                case 1:
+                    return this.Get(this.GetRandomAdjective()| IdentifierComponents.FirstName, order, separator, forceSingleLetter, lengthRestriction);
+                case 2:
+                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
+                default:
+                    return this.Get(this.GetRandomAdjective() | this.GetRandomNoun(), order, separator, forceSingleLetter, lengthRestriction);
+            }
+        }
+
+        private IdentifierComponents GetRandomAdjective()
+        {
+            var adjectiveOption = this.randomIndex.Get(2);
+
+
+            switch (adjectiveOption)
+            {
+                case 0:
+                    return IdentifierComponents.Adjective;
+                case 1:
+                    return IdentifierComponents.Nationality;
+                default:
+                    return IdentifierComponents.Adjective;
+            }
+
+        }
+
+        private IdentifierComponents GetRandomNoun()
+        {
+            var nounOption = this.randomIndex.Get(3);
+
+            switch (nounOption)
+            {
+                case 0:
+                    return IdentifierComponents.Profession;
+                case 1:
+                    return IdentifierComponents.Animal;
+                case 2:
+                    return IdentifierComponents.Noun;
+                default:
+                    return IdentifierComponents.Noun;
             }
         }
 

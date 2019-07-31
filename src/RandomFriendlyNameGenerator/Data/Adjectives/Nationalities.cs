@@ -2,8 +2,15 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+    /// <summary>
+    /// Class Nationalities.
+    /// </summary>
     public static class Nationalities
     {
+
+        /// <summary>
+        /// The values
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
             "Afghan",

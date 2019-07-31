@@ -2,7 +2,7 @@
 
 namespace RandomFriendlyNameGenerator.RandomIndex
 {
-    public class RandomBasedGenerator : IGenerateRandomIndex
+    internal class RandomBasedGenerator : IGenerateRandomIndex
     {
         readonly Random rnd = new Random();
         public int Get(int lowerThan)

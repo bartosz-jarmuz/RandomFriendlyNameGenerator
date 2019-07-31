@@ -2,8 +2,15 @@
 
 namespace RandomFriendlyNameGenerator.Data
 {
+
+    /// <summary>
+    /// Class Animals.
+    /// </summary>
     public static class Animals
     {
+        /// <summary>
+        /// The values
+        /// </summary>
         public static readonly List<string> Values = new List<string>()
         {
            "Aardvark",

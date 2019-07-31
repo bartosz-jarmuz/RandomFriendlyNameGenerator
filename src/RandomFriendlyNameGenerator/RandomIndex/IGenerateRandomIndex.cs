@@ -1,6 +1,6 @@
 ﻿namespace RandomFriendlyNameGenerator.RandomIndex
 {
-    public interface IGenerateRandomIndex
+    internal interface IGenerateRandomIndex
     {
         int Get(int lowerThan);
     }
