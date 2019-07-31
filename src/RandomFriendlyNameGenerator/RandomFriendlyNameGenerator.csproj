@@ -26,6 +26,11 @@ Over 100000 unique words in various categories allow hundreds of milions of comb
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <DocumentationFile>C:\Users\bjarmuz\source\repos\RandomFriendlyNameGenerator\src\RandomFriendlyNameGenerator\RandomFriendlyNameGenerator.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\bjarmuz\source\repos\RandomFriendlyNameGenerator\src\RandomFriendlyNameGenerator\RandomFriendlyNameGenerator.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>
