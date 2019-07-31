@@ -1,4 +1,4 @@
-# RandomFriendlyNameGenerator
+# RandomFriendlyNameGenerator [![Build status](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_apis/build/status/RandomFriendlyNameGenerator-.NET%20Desktop-CI)](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_build/latest?definitionId=21)
 Simple but flexible and powerful utility for generating random names and identifiers - with configurable number of components, separators, length and structure, usable in a single line of code.
 
 # Examples
@@ -124,16 +124,16 @@ Which in total allows for quite a few combinations:
 
 *(The latest values for the info below are available in the 'UniquenessTests' class in the tests project)*
 
-Code below, executed in loops of 100 000 and 1 000 000 times yields following results (they include overhead of adding strings to list)
+Code below, executed in loops of 100 000 and 1 000 000 times yields following results *(they include overhead of adding strings to list)*
 ```csharp
  NameGenerator.Identifiers.Get(IdentifierTemplate.AnyThreeComponents,  NameOrderingStyle.BobTheBuilderStyle)
  ```
 
-Generated 100 000. Duplicates: 1. Duplicates percentage: 0.00100. Elapsed: 329ms
-Generated 100 000. Duplicates: 0. Duplicates percentage: 0. Elapsed: 408ms
-Generated 100 000. Duplicates: 1. Duplicates percentage: 0.00100. Elapsed: 374ms
+> Generated 100 000. Duplicates: 1. Duplicates percentage: 0.00100. Elapsed: 329ms   
+> Generated 100 000. Duplicates: 0. Duplicates percentage: 0. Elapsed: 408ms   
+> Generated 100 000. Duplicates: 1. Duplicates percentage: 0.00100. Elapsed: 374ms   
 
-Generated 1 000 000. Duplicates: 51. Duplicates percentage: 0.005100. Elapsed: 3440ms
-Generated 1 000 000. Duplicates: 49. Duplicates percentage: 0.004900. Elapsed: 3138ms
-Generated 1 000 000. Duplicates: 33. Duplicates percentage: 0.003300. Elapsed: 3362ms
+> Generated 1 000 000. Duplicates: 51. Duplicates percentage: 0.005100. Elapsed: 3440ms   
+> Generated 1 000 000. Duplicates: 49. Duplicates percentage: 0.004900. Elapsed: 3138ms   
+> Generated 1 000 000. Duplicates: 33. Duplicates percentage: 0.003300. Elapsed: 3362ms   
 
