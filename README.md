@@ -3,6 +3,14 @@ Simple but flexible and powerful utility for generating random names and identif
 
 > **Get it from NuGet: https://www.nuget.org/packages/RandomFriendlyNameGenerator**  
 
+> **Try it out (send TEST get requests):  
+https://namegenerator.azurewebsites.net/api/GetName
+https://namegenerator.azurewebsites.net/api/GetNames/34  
+*or with more params*  
+https://namegenerator.azurewebsites.net/api/GetNames/2?template=BobTheBuilder&orderStyle=BobTheBuilderStyle&separator=-**  
+
+*\*This is not guaranteed service, i.e. this AzureFunction might get disabled without notice*
+
 # Examples
 In all methods you can specify the separator, the length restriction and whether generated words should all start with a single character (i.e. alliteration).  
 Also, each method has an overload which returns an IEnumerable instead of a single string.
