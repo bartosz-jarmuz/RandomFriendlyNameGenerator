@@ -3,11 +3,11 @@ Simple but flexible and powerful utility for generating random names and identif
 
 > **Get it from NuGet: https://www.nuget.org/packages/RandomFriendlyNameGenerator**  
 
-> **Try it out (send TEST get requests):  
-https://namegenerator.azurewebsites.net/api/GetName
-https://namegenerator.azurewebsites.net/api/GetNames/34  
-*or with more params*  
-https://namegenerator.azurewebsites.net/api/GetNames/2?template=BobTheBuilder&orderStyle=BobTheBuilderStyle&separator=-**  
+> **Try it out:  
+> https://namegenerator.azurewebsites.net/api/GetName  
+> https://namegenerator.azurewebsites.net/api/GetNames/10 (if you want to get 10 names)    
+> *or with more params*    
+> https://namegenerator.azurewebsites.net/api/GetNames/10?template=BobTheBuilder&orderStyle=BobTheBuilderStyle&separator=-**  
 
 *\*This is not guaranteed service, i.e. this AzureFunction might get disabled without notice*
 
