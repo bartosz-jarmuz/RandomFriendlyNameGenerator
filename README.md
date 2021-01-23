@@ -1,3 +1,4 @@
+![Logo](https://raw.githubusercontent.com/bartosz-jarmuz/RandomFriendlyNameGenerator/master/rfngLogotype.png)
 # RandomFriendlyNameGenerator [![Build status](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_apis/build/status/RandomFriendlyNameGenerator-.NET%20Desktop-CI)](https://bartosz-jarmuz.visualstudio.com/RandomFriendlyNameGenerator/_build/latest?definitionId=21)
 Simple but flexible and powerful utility for generating random names and identifiers - with configurable number of components, separators, length and structure, usable in a single line of code.
 
