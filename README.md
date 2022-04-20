@@ -121,16 +121,6 @@ At the moment the lists of words contain the following numbers:
 - **Professions**: 411
 Total of 109385 words. Unique words: 104049
 
-Which in total allows for quite a few combinations:
-
-- **Possible first name and last names combinations**: 716 785 528
-- **Possible first name, middle name and last names combinations**: 571 834 304
-- **Possible first name and adjective combinations**: 78 153 104
-- **Possible first name and animal combinations**: 9 363 520
-- **Possible first name and profession combinations**: 3 317 592
-- **Possible first name, adjective and animal combinations**: 463 287 424
-- **Possible first name, adjective and profession combinations**: 2 056 154 672
-
 # Performance
 
 *(The latest values for the info below are available in the 'UniquenessTests' class in the tests project)*
